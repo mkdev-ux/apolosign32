@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reviews – PrimeCams</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0d1117;
+      color: #c9d1d9;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem 0;
+    }
+
+    header {
+      background: #161b22;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #58a6ff;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: #c9d1d9;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #58a6ff;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #161b22;
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #58a6ff;
+    }
+
+    .review {
+      background: #21262d;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.5s ease;
+    }
+
+    .review.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .review h3 {
+      margin-bottom: 0.5rem;
+      color: #58a6ff;
+    }
+
+    form {
+      background: #161b22;
+      padding: 2rem;
+      border-radius: 8px;
+      margin-top: 2rem;
+    }
+
+    form input, form textarea, form select {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 6px;
+      background: #0d1117;
+      color: #c9d1d9;
+    }
+
+    form button {
+      background: #238636;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background: #2ea043;
+    }
+
+    footer {
+      background: #161b22;
+      color: #8b949e;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">ApoloSign</div>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <nav id="nav">
+        <a href="index.html">Home</a>
+        <a href="product.html">Product</a>
+        <a href="checkout.html">Checkout</a>
+        <a href="reviews.html">Reviews</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Customer Reviews</h1>
+
+    <div id="reviewList">
+      <!-- Static initial reviews -->
+      <div class="review fade-in visible">
+        <h3>John D. (🇺🇸 USA) – ★★★★★</h3>
+        <p>The ApoloSign 32" is a game-changer! Beautiful display and super portable. Highly recommend.</p>
+      </div>
+
+      <div class="review fade-in visible">
+        <h3>Susan P. (🇬🇧 UK) – ★★★★☆</h3>
+        <p>Great smart screen for presentations and travel. Only wish the battery lasted longer.</p>
+      </div>
+
+      <div class="review fade-in visible">
+        <h3>Kevin L. (🇨🇦 Canada) – ★★★★★</h3>
+        <p>I use this for client demos and it never fails. The clarity is incredible for a portable device!</p>
+      </div>
+     <div class="review fade-in visible">
+  <h3>William G. (🇦🇺 Australia) – ★★★★★</h3>
+  <p>Absolutely perfect for business travel. Lightweight, sharp display, and very reliable during presentations.</p>
+</div>
+
+    </div>
+
+    <!-- Add Review Form -->
+    <form id="reviewForm">
+      <h2 style="color:#58a6ff;">Add Your Review</h2>
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="text" id="country" placeholder="Country (e.g., USA)" required />
+      <select id="rating" required>
+        <option value="">Rating</option>
+        <option value="★★★★★">★★★★★ - Excellent</option>
+        <option value="★★★★☆">★★★★☆ - Good</option>
+        <option value="★★★☆☆">★★★☆☆ - Average</option>
+        <option value="★★☆☆☆">★★☆☆☆ - Poor</option>
+        <option value="★☆☆☆☆">★☆☆☆☆ - Bad</option>
+      </select>
+      <textarea id="message" rows="4" placeholder="Write your review..." required></textarea>
+      <button type="submit">Submit Review</button>
+    </form>
+  </main>
+
+  <footer>
+    &copy; 2025 PrimeCams. All rights reserved.
+  </footer>
+
+  <script>
+    // Menu toggle
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      document.getElementById('nav').classList.toggle('show');
+    });
+
+    // Fade-in animation on scroll
+    const fadeInElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    fadeInElements.forEach(el => observer.observe(el));
+
+    // Load saved reviews
+    const reviewList = document.getElementById('reviewList');
+    const savedReviews = JSON.parse(localStorage.getItem('userReviews') || '[]');
+
+    savedReviews.forEach(data => {
+      const div = document.createElement('div');
+      div.className = 'review fade-in visible';
+      div.innerHTML = `<h3>${data.name} (${data.country}) – ${data.rating}</h3><p>${data.message}</p>`;
+      reviewList.appendChild(div);
+    });
+
+    // Add new review
+    document.getElementById('reviewForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const country = document.getElementById('country').value;
+      const rating = document.getElementById('rating').value;
+      const message = document.getElementById('message').value;
+
+      const newReview = { name, country, rating, message };
+
+      // Save to localStorage
+      savedReviews.push(newReview);
+      localStorage.setItem('userReviews', JSON.stringify(savedReviews));
+
+      // Add to page
+      const div = document.createElement('div');
+      div.className = 'review fade-in visible';
+      div.innerHTML = `<h3>${name} (${country}) – ${rating}</h3><p>${message}</p>`;
+      reviewList.appendChild(div);
+
+      this.reset();
+    });
+  </script>
+</body>
+</html>

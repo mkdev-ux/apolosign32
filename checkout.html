@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout | PrimeCams</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #1c1f2e;
+      color: #fff;
+    }
+
+    nav {
+      background-color: #1f2335;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: #00bfff;
+      font-weight: bold;
+      font-size: 1.4rem;
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      background: #fff;
+      height: 3px;
+      margin: 4px 0;
+      width: 25px;
+    }
+
+    ul.nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    ul.nav-links li a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .container {
+      background-color: #1e2738;
+      max-width: 420px;
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #000;
+    }
+
+    h2 {
+      text-align: center;
+      color: #00bfff;
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #2e3b55;
+      color: #fff;
+    }
+
+    input:focus, select:focus {
+      border: 1px solid #00bfff;
+      outline: none;
+      box-shadow: 0 0 5px #00bfff;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.8rem;
+      background-color: #00bfff;
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #009acd;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-bottom: 1rem;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
+
+      ul.nav-links {
+        flex-direction: column;
+        display: none;
+        background-color: #1f2335;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        padding: 1rem;
+        width: 200px;
+        border-left: 1px solid #333;
+      }
+
+      ul.nav-links.active {
+        display: flex;
+      }
+    }
+
+    .announcement {
+      background: linear-gradient(90deg, #00e0b6, #00bfff);
+      color: #00332e;
+      text-align: center;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      animation: fadeSlideDown 0.6s ease-out;
+    }
+
+    .announcement-icon {
+      font-size: 1.3rem;
+    }
+
+    @keyframes fadeSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .qr-code {
+      text-align: center;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    .qr-code img {
+      max-width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 0 12px #00bfff50;
+    }
+
+    .qr-code p {
+      font-size: 0.85rem;
+      color: #bbb;
+      word-break: break-word;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">ApoloSign</div>
+    <div class="nav-toggle" id="navToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="product.html">Product Details</a></li>
+    </ul>
+  </nav>
+
+  <div class="announcement">
+    <span class="announcement-icon">🚀</span>
+    <span>Free Shipping Worldwide – This Week Only!</span>
+  </div>
+
+  <div class="container">
+    <h2>Checkout</h2>
+    <form id="checkoutForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required />
+
+      <label for="address">Shipping Address</label>
+      <input type="text" id="address" name="address" required />
+
+      <label for="payment">Payment Method</label>
+      <select id="payment" name="payment" required>
+        <option value="">Select a payment method</option>
+        <option value="Visa">Visa</option>
+        <option value="Mastercard">Mastercard</option>
+        <option value="Bitcoin">Bitcoin</option>
+        <option value="Zelle">Zelle</option>
+        <option value="Apple Pay">Apple Pay</option>
+        <option value="Venmo">Venmo</option>
+        <option value="Gift Card">Gift Card</option>
+        <option value="PayPal">PayPal</option>
+      </select>
+
+      <div class="qr-code" id="qrCode">
+        <p>Scan to Pay with Bitcoin:</p>
+        <img src="images/apolosigncode.png" alt="Your Bitcoin QR Code" />
+        <p>bc1qdvn2dm4w87m6vtfd5y6epevpxqkn8627gdw9v6</p>
+      </div>
+
+      <button type="submit">Place Order</button>
+    </form>
+  </div>
+
+  <footer>&copy; 2025 PrimeCams. All rights reserved.</footer>
+
+  <script>
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('active');
+    });
+
+    document.getElementById("payment").addEventListener("change", function() {
+      document.getElementById("qrCode").style.display = this.value === "Bitcoin" ? "block" : "none";
+    });
+
+    document.getElementById("checkoutForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      formData.append("_subject", "New Order from PrimeCams");
+      formData.append("_captcha", "false");
+      formData.append("_template", "table");
+
+      fetch("https://formsubmit.co/apolosign32@gmail.com", {
+        method: "POST",
+        body: formData
+      })
+      .then(res => {
+        if (res.ok) {
+          alert("Order placed successfully! We'll contact you soon.");
+          this.reset();
+          document.getElementById("qrCode").style.display = "none";
+        } else {
+          alert("Submission failed. Please try again.");
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Something went wrong.");
+      });
+    });
+  </script>
+</body>
+</html>

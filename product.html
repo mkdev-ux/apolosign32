@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ApoloSign 32" Portable Smart Screen - Details | PrimeCams</title>
+  <style>
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0d1117;
+      color: #e6edf3;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem 0;
+    }
+
+    /* Header */
+    .header {
+      background-color: #161b22;
+      color: #58a6ff;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 255, 255, 0.05);
+    }
+
+    .logo {
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: #58a6ff;
+    }
+
+    .nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav a {
+      color: #c9d1d9;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #58a6ff;
+      transition: width 0.3s;
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      color: #58a6ff;
+      font-size: 1.8rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Responsive Nav */
+    @media (max-width: 768px) {
+      .nav {
+        display: none;
+        flex-direction: column;
+        background: #0d1117;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        padding: 1rem;
+        width: 200px;
+        box-shadow: 0 2px 8px rgba(255,255,255,0.05);
+        z-index: 1000;
+      }
+
+      .nav.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    /* Main Content */
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding-bottom: 4rem;
+    }
+
+    /* Product Images */
+    .images {
+      flex: 1 1 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .images .main-img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.12);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .images .main-img:hover {
+      transform: scale(1.02);
+    }
+
+    .images .thumbs {
+      display: flex;
+      gap: 10px;
+      margin-top: 0.5rem;
+    }
+
+    .images .thumbs img {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .images .thumbs img.active,
+    .images .thumbs img:hover {
+      opacity: 1;
+      border-color: #03dac6;
+    }
+
+    /* Product Details */
+    .details {
+      flex: 1 1 450px;
+      color: #c9d1d9;
+    }
+
+    .details h1 {
+      font-size: 2.5rem;
+      color: #58a6ff;
+      margin-bottom: 1rem;
+    }
+
+    .details p.description {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .details ul.specs {
+      list-style: none;
+      margin-bottom: 2rem;
+      padding-left: 1rem;
+    }
+
+    .details ul.specs li {
+      margin-bottom: 0.8rem;
+      position: relative;
+      padding-left: 1.2rem;
+    }
+
+    .details ul.specs li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #03dac6;
+    }
+
+    /* Price & Actions */
+    .price {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #03dac6;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      padding: 0.8rem 1.6rem;
+      background-color: #03dac6;
+      color: #0d1117;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-right: 1rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background-color: #00bfa5;
+      color: white;
+    }
+
+    .btn.secondary {
+      background-color: #282c34;
+      color: #e6edf3;
+    }
+
+    .btn.secondary:hover {
+      background-color: #343a46;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      main {
+        flex-direction: column;
+      }
+
+      .images,
+      .details {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">ApoloSign</div>
+      <button class="menu-toggle" id="menu-toggle">☰</button>
+      <nav class="nav" id="nav">
+        <a href="index.html">Home</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="checkout.html">Checkout</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Images -->
+    <section class="images">
+      <img src="images/pic1.webp" alt="ApoloSign Front View" class="main-img" id="main-image" />
+      <div class="thumbs">
+        <img src="images/pic1.webp" alt="Front View" class="active" />
+        <img src="images/pic2.webp" alt="Side View" />
+        <img src="images/pic3.webp" alt="Back View" />
+        <img src="images/pic4.webp" alt="Folded View" />
+      </div>
+    </section>
+
+    <!-- Details -->
+    <section class="details">
+      <h1>ApoloSign 32" Portable Smart Screen</h1>
+       <p class="description">
+    The ApoloSign 32" Portable Smart Screen delivers ultra-HD clarity, wireless mobility, and responsive multi-touch controls. Designed for digital signage, presentations, education, and entertainment, it combines professional-grade performance with full portability.
+  </p>
+  <ul class="specs">
+    <li>32-inch UHD 3840x2160 resolution (also available in FHD)</li>
+    <li>10-point capacitive multi-touch in-cell display</li>
+    <li>Rotatable, height-adjustable stand with tilt/swivel</li>
+    <li>Portable with built-in battery (up to 6 hours)</li>
+    <li>Multiple connectivity: HDMI, USB-C, USB-A, Wi-Fi, Bluetooth</li>
+    <li>Android OS (Play Store supported) with touchscreen interface</li>
+    <li>Built-in stereo speakers, microphone, and remote control</li>
+  </ul>
+
+      <div class="price">$579.00</div>
+
+      <a href="checkout.html" class="btn">Buy Now</a>
+      <a href="index.html" class="btn secondary">Back to Home</a>
+    </section>
+  </main>
+
+  <script>
+    // Menu toggle script
+    const menuToggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav');
+
+    menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('show');
+    });
+
+    // Image thumbnail click to change main image
+    const mainImage = document.getElementById('main-image');
+    const thumbs = document.querySelectorAll('.thumbs img');
+
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        // Change main image src to clicked thumb
+        mainImage.src = thumb.src;
+        // Remove active class from all
+        thumbs.forEach(t => t.classList.remove('active'));
+        // Add active class to clicked thumb
+        thumb.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
